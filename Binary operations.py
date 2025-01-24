@@ -5,10 +5,9 @@
 # Update Record
 # Display record
 # Exit
-# Use cust.dat for this program created in pro3.
+# Use cust.dat file for this program and make sure the formal address of file is specified in the program properly
 
 import pickle
-
 def insert():
     print()
     with open(r"C:\Users\Administrator\Desktop\txt files\Cust.dat", "ab") as file:
@@ -45,7 +44,7 @@ def update():
         flag = False
         se = input("Enter ID to search: ")
         while True:
-            try:
+            try:        #try block for error handling
                 data = pickle.load(file)
                 l.append(data)
             except:
@@ -86,6 +85,7 @@ def delete():
         for i in l:
             if se != i[0]:
                 pickle.dump(i,file)
+# menu for available options and services.
 while True:
     print("1 <---- Insert a new data.")
     print("2 <---- Update an existing data.")
