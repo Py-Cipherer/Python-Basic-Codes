@@ -2,11 +2,13 @@ import pickle
 import sys
 import time
 
+#make sure to use the file format of .dat extension
+
 def read_data_from_file(file_path):
     try:
         with open(file_path, "rb") as file:
             data = pickle.load(file)
-    except (EOFError, FileNotFoundError):
+    except (EOFError, FileNotFoundError): #if file doesn't exist or is empty then it'll make sure the code doesn't terminates.
         data = {}
     return data
 
@@ -40,6 +42,7 @@ def update():
         print("No such log found.")
     news_log()
 
+
 def delete():
     file_path = r"C:\Users\Administrator\Desktop\txt files\omg.dat"
     data = read_data_from_file(file_path)
@@ -68,6 +71,7 @@ def display():
         print(key, "=", value)
     news_log()
 
+#menu for all operations.
 def news_log():
     while True:
         print("1. Insert data\n2. Update data\n3. Delete data\n4. Search data\n5. Display all data\n6. Exit")
